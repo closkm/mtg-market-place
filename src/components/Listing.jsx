@@ -3,7 +3,7 @@ import "./Index.css"
 import { useHistory, useLocation } from "react-router-dom"
 import {Link} from 'react-router-dom'
 
-function Listing({listing, cart, updateCart, market, deleteListing, userID, editPost, edit, id, name, condition, url, set, price, location, customerEmail, orderButton }) {
+function Listing({listing, updateCart, market, deleteListing, userID, id, name, condition, url, set, price, location, customerEmail, orderButton }) {
     const history = useHistory()
     //console.log(id, name, condition, url, set, price, location, customerEmail)
     const onClick = (e) => {

@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import Listing from './Listing'
 
-function Cart({cart, listings, setCart, setListings, userID, orders}) {
+function Cart({cart, listings, setCart, userID}) {
   const [order, setOrder] = useState()
   const [check, setCheck] = useState(false)
   const [test, setTest] = useState()
