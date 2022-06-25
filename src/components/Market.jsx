@@ -17,7 +17,7 @@ function Market({setCart, listings, setListings,userID}) {
     }
     const deleteListing =  async(id) => {
         if(window.confirm('are you sure you want to delete?')){ 
-        await fetch(`http://localhost:8088/employees/${id}`, {
+        await fetch(`http://localhost:8088/cards/${id}`, {
             method: 'DELETE',
             
     })

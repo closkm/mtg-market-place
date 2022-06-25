@@ -22,7 +22,7 @@ function Sell({listings, userID}) {
     "url": setUrl
   }
 
-  const apiURL = 'http://localhost:8088/employees'
+  const apiURL = 'http://localhost:8088/cards'
 
   
   const handleChange =(e) => {

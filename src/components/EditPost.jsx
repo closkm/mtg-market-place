@@ -1,11 +1,11 @@
 import React from 'react'
 import {useState} from 'react'
-import {useLocation, Link} from 'react-router-dom'
+import {useLocation, Link, useHistory} from 'react-router-dom'
 
 
 function EditPost({listings, setListings}) {
     const loc = useLocation()
-
+    const history = useHistory()
     const {testid} = loc.state
     const {tname} = loc.state
     const {turl} = loc.state
@@ -24,14 +24,7 @@ function EditPost({listings, setListings}) {
     const [location, setLocation] = useState(tlocation)
     const [url, setUrl] = useState(turl)
     const [customerEmail, setCustomerEmail] = useState(tcustomerEmail)
-    // const fetchFeedback = async () => {
-    //     const response = await fetch(`http://localhost:8088/employees`)
-    //     const data = await response.json()
-    //     setListings(data)
-    //     setIsLoading(false)
-    // }
-    
-    
+        
 
 
   const diction = {
@@ -43,7 +36,7 @@ function EditPost({listings, setListings}) {
     "url": setUrl
   }
 
-  const apiURL = 'http://localhost:8088/employees'
+  const apiURL = 'http://localhost:8088/cards'
   const handleChange =(e) => {
     diction[e.target.id](e.target.value)
     //console.log(name);
@@ -72,18 +65,31 @@ const data = await response.json()
        customerEmail: customerEmail,
        buyerID: 0
     }
+    history.push("/market")
     sendRequest(id, dataToSend)
   }
 
   return (
     <div>
       <form>
-      <input id="name" type="text" placeholder='name' onChange={handleChange}  value={name} />
-      <input id="set" type="text" placeholder='set' onChange={handleChange}  value={set} />
-      <input id="condition" type="text" placeholder='condition' onChange={handleChange}  value={condition} />
-      <input id="price" type="text" placeholder='price' onChange={handleChange}  value={price} />
-      <input id="location" type="text" placeholder='location' onChange={handleChange}  value={location} />
-      <input id="url" type="text" placeholder='url' onChange={handleChange}  value={url} />
+      <fieldset className="sellfield">
+      <input className="sellinput" id="name" type="text" placeholder='name' onChange={handleChange}  value={name} required />
+        </fieldset>
+        <fieldset className="sellfield">
+      <input className="sellinput" id="set" type="text" placeholder='set' onChange={handleChange}  value={set} required/>
+        </fieldset>
+        <fieldset className="sellfield">
+      <input className="sellinput" id="condition" type="text" placeholder='condition' onChange={handleChange}  value={condition} required/>
+        </fieldset>
+      <fieldset className="sellfield">
+      <input className="sellinput" id="price" type="text" placeholder='price' onChange={handleChange}  value={price} required/>
+      </fieldset>
+      <fieldset className="sellfield">
+      <input className="sellinput" id="location" type="text" placeholder='location' onChange={handleChange}  value={location} required/>
+      </fieldset>
+      <fieldset className="sellfield">
+      <input className="sellinput" id="url" type="text" placeholder='url' onChange={handleChange}  value={url} required/>
+      </fieldset>
       <Link onClick={onSubmit } to={{pathname: '/editpost', state: {
                 testid: id,
                 tset: set,

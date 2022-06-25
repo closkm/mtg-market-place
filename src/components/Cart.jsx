@@ -33,7 +33,7 @@ function Cart({cart, listings, setCart, setListings, userID, orders}) {
   }, [cart])
 
 const fetchCard = async (id) => {
-  const response = await fetch(`http://localhost:8088/employees/${id}`)
+  const response = await fetch(`http://localhost:8088/cards/${id}`)
   const data = await response.json()
 setTest(data)
 console.log(data);
@@ -63,8 +63,8 @@ console.log(data);
     localStorage.setItem("shoppingCart", JSON.stringify(mike))
   }
 
-  const apiURL = 'http://localhost:8088/serviceTickets'
-  const apiURL2 = 'http://localhost:8088/employees'
+  const apiURL = 'http://localhost:8088/orders'
+  const apiURL2 = 'http://localhost:8088/cards'
 
 const sendRequest = (newUser) => {
   const fetchOptions = {
@@ -103,7 +103,7 @@ const sendRequest = (newUser) => {
       </ul>
     </main>
       <div>
-    {check && <button onClick={onClick}>mike</button>}
+    {check && <button onClick={onClick}>Checkout</button>}
       </div>
       <h1 className="pageHeader">Your Orders</h1>
       <ul className="categoryListings">

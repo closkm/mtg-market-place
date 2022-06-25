@@ -23,14 +23,14 @@ function ApplicationViews() {
         },[localStorage.getItem("honey_customer")])
 
 const fetchFeedback = async () => {
-    const response = await fetch(`http://localhost:8088/employees`)
+    const response = await fetch(`http://localhost:8088/cards`)
     const data = await response.json()
     setListings(data)
     setIsLoading(false)
 }
 
 const fetchOrders = async () => {
-  const response = await fetch(`http://localhost:8088/serviceTickets`)
+  const response = await fetch(`http://localhost:8088/orders`)
   const data = await response.json()
   setOrders(data)
 }
